@@ -1,7 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Posts</h1>
-
+<script>
+var average= null;
+var x;
+  <% @posts.each do |post| %>
+    if (average[<% post.age %>]=null)
+    {
+      x=1;
+    }
+    else
+    {
+      x=2;
+    }
+    average[<% post.age %>]+= <% post.sleephours %>;
+    average[<% post.age %>] = average[<% post.age %>]/x;
+    console.log(average);
+  <% end %>
+</script>
 <table>
   <thead>
     <tr>

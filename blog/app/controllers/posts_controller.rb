@@ -7,7 +7,18 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  # GET /posts/1
+averages = Array.new(100)
+
+
+@posts.each do |post|
+  if averages[post.age] < 0
+    x=2
+  else 
+    x=1
+  end 
+  averages[post.age]+= post.sleephours
+  averages[post.age]= averages[post.age]/x
+end# GET /posts/1
   # GET /posts/1.json
   def show
   end
